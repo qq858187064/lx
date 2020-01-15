@@ -1,0 +1,109 @@
+﻿html,body,form,div,span,p,h1,h2,h3,h4,h5,h6,a,b,i,em,strong,label,table,tbody,td,th,tr,dl,dt,dd,ul,li,ol,input,img,select,textarea,br,hr,button,map,pre
+{
+    margin:0;
+	padding:0;
+	overflow:hidden;
+	color:#333;
+}
+html 
+{
+    height:100%;
+	overflow-y:scroll;
+	background:#fff;
+    text-align:center;
+}
+body
+{
+    margin:0 auto;
+	font:400 12px/2 '微软雅黑','宋体',Verdana;
+}
+.W
+    {
+    margin:0 auto;
+    text-align:left;
+    }
+a{blr:expression(this.onFocus=this.blur());}
+a:focus {outline: none;}  
+a,
+em,
+i
+{
+	text-decoration:none;
+	font-style:normal;
+}
+img {
+	border:none;
+}
+input
+{
+    outline:0 none;
+}
+.Z1
+{
+	zoom:1;
+}
+.Org,
+.Org a,
+.Ls a:hover,
+a:hover{
+	color:#f60;
+}
+.L
+{
+	float:left;
+}
+.R
+{
+	float:right;	
+}
+.Ld
+{
+	display:block;
+	background:url(http://hs.cnfol.com/Cm/Imgs/Load.gif) no-repeat center center;
+	position:relative
+}
+.Trans{
+	filter:alpha(opacity=86);
+	opacity:0.86;
+}
+.I2 p,
+p.I2
+{
+	text-indent:2em;
+	margin-bottom:6px;
+}
+.Mt9
+{
+	margin-top:10px;
+}
+.Mh9
+{
+	margin-left:10px;
+    margin-right:10px;
+}
+.Mv9
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.Mb9
+{
+	margin-bottom:10px;
+}
+.Pb9 
+{
+    padding-bottom:10px;
+}
+.Ifr6
+{
+    width:888px;
+    height:888px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:#000;
+    filter:alpha(opacity=0);
+}
+.R4 {
+    -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;
+}

@@ -1,0 +1,76 @@
+body{margin:0px;padding:0px;background:#FFFFFF;}
+body,table{font-size:12px;color:#000000;word-break : break-all; }
+select{width:200px;font-family:verdana,tahoma,arial;font-size:12px;}
+a{text-decoration:none;color:#000; font-family:Verdana;}
+a.bh:hover,
+a:hover{color:#f60;text-decoration:none;}
+a.a1{color:#FFFFFF;}
+a.a1:hover{color:#EEEAEA;}
+a.a2{color:#FFF;}
+a.a2:hover{ color:#FFF;text-decoration:underline; }
+a.a3{color:#000000;}
+
+#table1{background:#d0d8db;width:100%;height:25px;color:#FFFFFF; text-align:right;}
+#td1{background:#d0d8db;padding:1px 10px 3px 10px;font-family:verdana,tahoma,arial;font-weight:bold;}
+#td2{background:#d0d8db;padding:1px 10px 3px 10px;letter-spacing:1px;white-space: nowrap; }
+#div1{padding:2px 10px;font-family:verdana,tahoma,arial;font-size:12px;line-height:18px;}
+#div2{border-bottom:1px solid #c00;padding-top:0px;}
+#span1{width:254px;font-family:verdana,tahoma,arial;font-size:15px;font-weight:bold;line-height:24px;}
+.span2{color:#f60;}
+#div3{margin-top:2px;width:750px;height:30px;border-top:1px dashed #c00;line-height:30px;
+	background:url("img/ssxy.gif") no-repeat 0 5 ;
+}
+
+##jinhead{width:750px;height:2px;}
+/*#jinfot{width:750px;height:90px;background:#ccc;}*/
+
+#jinfoot{border-top:1px dashed #c00;width:750px;height:20px;background:#fff;}
+/*#jinbot{width:750px;height:90px;background:#000;}*/
+
+
+#span3{font-size:10px;}
+.span4{color:#C000C0;}
+.ie{color:#0000FF;}
+.ns{color:#B8860B;}
+.no{color:#FF3300;}
+.wc{color:#008000;}
+a.ie{color:#0000FF;}
+a.ns{color:#B8860B;}
+a.no{color:#FF3300;}
+table.meme{font-family:tahoma,verdana,arial;font-size:11px;background:#000000;}
+table.meme th,table.meme td{text-align:left;vertical-align:middle;padding:6px 8px;background:#FFFFFF;}
+table.meme th{background:#FAFAD2;}
+.index{font-family:tahoma,arial;font-size:12px;font-weight:bold;}
+
+
+#jinfoot ul{
+    list-style-type: none;
+    margin:2px 0 0px 0;
+    padding: 0px;
+}
+#jinfoot li{
+    display:inline;float:left;padding:0 2px;
+}
+#jinfoot li a{
+    display:block;
+    padding:3px 6px;
+    color:#c00;
+    text-decoration:none;
+}
+#jinfoot li a:hover{
+    color:#fff;
+    background:#c00;
+}
+.lists span a
+{
+    padding:0 5px;
+}
+a.bh
+{
+	float:left;
+	color:#fff;
+	line-height:24px;
+	padding-left:8px;
+}
+
+

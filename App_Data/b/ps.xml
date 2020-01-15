@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<a>
+    <t>网站建设之301重定向</t>
+    <b>
+      <p>301重定向，也叫301跳转，就是用户在请求一个网址时，通过技术手段，重定向另一个网址。通常用于网站更换域名、网站权重聚集和转移等等。有个有趣的现象是：很多人总是热衷于把xxx.com重定向到www.xxx.com，他们之所以这样是因为他们总是这样，仅仅是为了迎合人们的习惯而已。事实上，xxx.com才是真正的顶级域名，www.xxx.com属于二级域。</p>
+      <p>无论我们出于什么原因，在需要作301跳转时，通常采用如下方案：<br />
+        1、直接在域名上做跳转：这是最佳而且最简单的方案，但需要域名服务商技术这项目功能才行，或者到dns商家去购买转发服务，费用和域名费用差不多。<br />
+        2、在服务器上做跳转：如果服务器支持的话，在IIS层作跳转是个不错的选择，具体方法是，先在IIS中选中需要跳转的站点，右键单击“属性”，在弹出的网站属性对话框中选定“主目录”选项卡，选中“重定向到URL”，并输入网址如：<a target="_blank" href="http://www.wanfolin.com">http://www.wanfolin.com</a> ，同时选中下面的"资源的永久重定向"选项，确定即可<br />
+        3、用代码进行跳转<br />
+        如果前两个方案都不被条件所允许的话，我们只能在应用层作实现了，然后，即便是最无奈的选择，我们也习惯于用最好的代码来实现功能。这里还有一个细节，的确只是个细节，但它真的很重要，如果我们希望只在首页进行跳转时，事件应该写在OnLoad中，或许有朋友有特殊的需求，希望在整站所有页都进行跳转，这时事件应该写在Global.asax文件中的Application_BeginRequest事件中<br />a、具体实现代码如下：
+        <pre>
+          protected void Page_Load(object sender, EventArgs e)
+          {
+          if (Request.ServerVariables["SERVER_NAME"].ToLower().Equals("wanfolin.com"))
+          {
+          string newurl = "http://www.wanfolin.com" + Request.RawUrl;
+          Response.Clear();
+          Response.StatusCode = 301;
+          Response.Status = "301 Moved Permanently";
+          Response.AddHeader("Location", newurl);
+          }
+          }
+          void Application_BeginRequest(object sender, EventArgs e)
+          {
+          HttpContext crt= HttpContext.Current;
+          if (crt.Request.ServerVariables["SERVER_NAME"].ToLower().Equals("wanfolin.com"))
+          {
+          string newurl = "http://www.wanfolin.com" + crt.Request.RawUrl;
+          crt.Response.Clear();
+          crt.Response.StatusCode = 301;
+          crt.Response.Status = "301 Moved Permanently";
+          crt.Response.AddHeader("Location", newurl);
+          }
+          }
+        </pre>
+      </p>
+    </b>
+    <t>网站建设之Javascript中的this</t>
+    <b>
+      <p>
+this，相信每位Coder都不会陌生，它甚至会让很多人"凌乱"不堪：在C#中，this引用类的当前实例；C++中有指针的概念，this指向对象自身的指针.........而在当今网络编程语言中，最有作为、也最受争议的Javascript里，这个神奇的this到底代表什么？
+世间唯一永恒不变的，就是变化。Javascript中的this亦是如此，this究竟是什么，完全取决于环境的变化，这得从Javascript函数的五种调用模式说起：</p>
+
+      <b>1、方法调用模式:</b>
+<p>用该模式调用方法时，会将调用对象绑定到this，这种超级迟绑定成就了this的高度复用，此时也能用this访问对象，且能从对象中取值或修改该对象。<br />
+如：<br />
+  C.Batch();<br />
+  Batch中的this，指向C对象。</p>
+
+<b>2、函数调用模式:</b>
+<p>当以该模式调用方法时，this被绑定到全局对象，我能确定这是Javascript语言的一个设计错误，但世界总是会允许错误出现，而我们不能因为错误需要继续存在而误认为它是正确的。<br />
+如：<pre>
+  function Batch()
+  {
+      alert(this);
+  };
+  Batch();
+</pre>
+此时指向this指向全局对象，在网页上运行，会弹出Window。</p>
+
+<b>3、构造器调用模式:</b>
+<p>几乎所有高级编程语言都基于类继承的，而Javascript却偏离了这一主流：它是基于原型继承的，如果在调用函数时，前面加上new，将返回该函数的prototype的新对象，并将this绑定到这个新对象上。<br />
+如：<br />
+alert(new Tabs());<br />
+此时指向this指向Tabs函数的prototype的对象，如果代码是在网页上，会弹出object。</p>
+
+<b>4&amp;5、Apply调用模式和Call调用模式:</b>
+<p>在这两种模式中，都允许我们选择this的值，第一个参数您需要绑定到this的对象 。<br />
+如：
+  <pre>
+    var o=[1,2,3,4,5];
+    function Ca()
+    {
+    alert(this.join("_"));
+    }
+    Ca.call(o);
+  </pre>
+此时this指向传入的第一个参数，即o这个数组，故会弹出1_2_3_4_5。</p>
+    </b>
+  <t>网站建设指南</t>
+  <b>
+    <p>经常有朋友向我咨询网站建设相关的一些问题，在这里我非常感谢大家的信任，同时，也分享下本人多年来在网站建设、运营等方面积累的一些经验，以帮助大家轻松的建设、运营好自己的网站，当我们决定要做一个网站时，可以参考以下步骤：</p>
+
+    <strong>第一步、策划网站</strong>
+    <p>某种意义上，真正的建站者是网站主自己，而不是网站承建者，所以，网站的策划工作一定要认真的做到位；</p>
+    <p>把网站策划书以书面的形式列出来，并请策划者之外的某人看一遍，看他是否能明白策划文档所述。有些朋友为了省事，直接向网络公司的人员口述需求，须知网络公司来的人一般是业务人员，他会将自己听到的需求转述给设计师，这样的信息传递方式往往会失真，结果可想而知；</p>
+    <p>如果条件允许的话，尽可能的和设计师进一步沟通，确保设计师已经充分了解网站策划书，了解网站主的需求，设计师才能设计出您想要的网站外观。</p>
+    <strong>第二步、设计网站</strong>
+    <p>网站界面完成后，一般都会请网站主确认设计稿，这个时候您需要认真审核设计稿，看界面是不是你想要的外观，如果不是，则要求继续修改设计稿，建站公司在这个时候一定会有足够的耐心修改到你满意为止，但你确认过之后，再要有外观方面的修改要求，却一定不会被无限度、无条件的满足；</p>
+    <p>如果你希望网站的用户体验更好些，可以要求设计师设计出一些交互时的外观，比如鼠标经过菜单时的样子等等。</p>
+    <strong>第三步、开发网站</strong>
+    <p>重视网站的编码质量，很多网站主通常不愿意跟进这个环节，但我建议您重视，因为网站的打开速度、用户体验、搜索引擎收录等等的决定性因素，几乎都会在这个环节里占有相当大的比重，如果您不懂代码的话，可以找个懂网页代码的同事或朋友，帮你把下质量关；</p>
+    <p>如果条件允许的话，多和网站开发者沟通，可以把你网站的目标、未来发展方向，甚至运营方案等等都告诉他，这么作的好处是：你有可能得到超值的网站质量和科学的架构。</p>
+    <strong>第四步、网站运维</strong>
+    <p>
+      基于前期的努力，已经拥有网站了，而此时许多网站主已经疲惫不堪，但您还需要再坚持下去，这样才会让之前的工作更有意义；
+      推广宣传，这么好的网站如果不让更多的人知道和使用，就有些暴殄天物了，所以要根据需要作广告、网络推广、SEO等方面的工作，尽可能让更多的用户知道你的网站；
+    </p>
+    <p>留住用户，当您已经拥有了自己的用户时，一定需要提供高质量且对用户价值的内容，在这个前提下，提高用户体验，千万不要让用户因为使用不方便、不人性化而放弃你的网站；</p>
+    <p>改版计划，再好的网站也需要适当的改变，这个时候通常需要改版，这个工作通常由网站运维决策者提出，千万不要刻舟求剑，觉得自己的网站能够一劳永逸的永远受到欢迎，如果真的如此，那您一定有办法让自己的网站更受欢迎。</p>
+    <strong>第五步、域名注册与备案</strong>
+    <p>很多朋友为了省事，会把域名注册、空间或服务器租赁的工作让建站一并公司代理，我在这里提醒大家最好不要这样作，域名是网站主的虚拟财产，要保护好自己，以避免不必要的麻烦；</p>
+    <p>注册域名时，尽量选择简单、易记些的，如果能与自己的网站性质、用途相关的话，就更好了；</p>
+    <p>选择正规的域名服务商，如持有域名注册服务批文和通过工信部备案系统认证的服务商，如我所知道的万网等。</p>
+    <strong>第六步、租用空间或服务器</strong>
+    <p>同样，空间或服务器的权限更直接关系到网站的安全，即便是建站者帮你上传，也要记得收回权限并及时修改密码。</p>
+    <p>空间可以根据需要选择，如虚拟主机、服务器合租或单独租、甚至自购服务器，然后再找机房托管。如果是新网站，且数据量、访问量不大，可以选择能满足需要的经济套餐，后期数据量、访问量渐增，可以根据需要改套餐，价格一般在300元~20000元不等。</p>
+    <strong>写给开发者：</strong>
+    <p>以上几个步骤中多次提到了网站开发者，可见开发者在网站整个的开发、运营等方面举足轻重的地位，那么作为网站的开发者，您需要具备一定的职业道德、修养：</p>
+    <p>我们是开发者，而不是商人，就应该站在网站主(通常是我们的老板或客户)的立场上，认真负责、精益求精的完成编码工作，而不要为了尽快完成任务，去应付、蒙蔽，甚至欺骗自己的上司、老板或客户，我奉劝这些开发者：永远不要践踏自己良心和道德，也不要自掘坟墓；</p>
+    <p>对于网站开发者而言，行业技术日新月异，而几乎每个新思想、新技术总是能够带来令人兴奋的消息：它们能够提高网站运行速度、降低网站开发和维护的人力成本等......</p>
+    <p>所以，不要"复制+粘贴"数年前的老代码，甚至盯着数年前的老习惯、老经验不放，并期待它永远让我们受益，如果您自认为自己真的受益了，我想提醒下，网站主正因为你的"受益"而受害了。我奉劝这些开发者：不要刻舟求剑，更不要损人利己。</p>
+  </b>
+  <t>网站建设之网站内容采集浅析</t>
+  <b>
+    <p>“内容为王”的感叹时常不绝于耳，对于资讯类网站更甚之，内容很大程度上决定了用户量，而用户量决定平台的成败。作好内容，可以请编辑、记者等相关的人员撰写、改编。可是，在高成本、低效率面前，似乎没有谁不喜欢采集。</p>
+    <strong>一、思路：</strong>
+    1、模拟用户访问目标网站，获取网页代码；<br />
+    2、将目标网站代码分离，分析、组织需要的部分；<br />
+    3、设计好数据库、表、视图、存储过程等，并将采集回来的数据过滤、入库；<br />
+    4、将数据以需要的外观、结构显示到自己网站上。<br />
+    <strong>二、 网站建设之核心代码：</strong>
+    <strong>  1、网站建设之采集部分(C#)：</strong>
+    <pre>
+      /// <summary>
+        /// 文章采集器， 根据输入网址、截取条件返回数据。
+        ///
+      </summary>
+      /// <param name="url">目标地址</param>
+      /// <param name="prefix">标题开始字符串</param>
+      /// <param name="suffix">
+        标题结束字符串</param>
+      /// <param name="start">
+        正文开始字符串</param>
+        /// <param name="end">正文结束字符串</param>
+        /// <param name="encoding">返回编码类型</param>
+        /// <param name="times">设置请求超时期限，单位为毫秒</param>
+        /// <returns name="string"></returns>
+        private C.C.article gArt(string url, string prefix, string suffix, string start, string end,bool inner = true, string encoding = "", int times = 5000)
+        {
+        string sRslt = "";
+        WebResponse oWebRps = null;
+        WebRequest oWebRqst = WebRequest.Create(url);
+        oWebRqst.Timeout = times;
+        oWebRps = oWebRqst.GetResponse();
+        if (oWebRps != null)
+        {
+        StreamReader oStreamRd = new StreamReader(oWebRps.GetResponseStream(), Encoding.GetEncoding(encoding == "" ? (oWebRps as HttpWebResponse).CharacterSet : encoding));
+        sRslt = oStreamRd.ReadToEnd();
+        oStreamRd.Close();
+        oWebRps.Close();
+        }
+        //Server.HtmlDecode(sRslt);
+        int a = sRslt.IndexOf(prefix) + prefix.Length,
+        b = sRslt.IndexOf(suffix, a),
+        c = sRslt.IndexOf(start, b);
+        if (inner)
+        {
+        c = c + start.Length;
+        }
+        int d = sRslt.IndexOf(end, c);
+
+        C.C.article art = new C.C.article();
+        art.title = sRslt.Substring(a, b - a);
+        art.body = sRslt.Substring(c, d - c);
+        return art;
+        }
+      </pre>
+
+
+    <strong>2、网站建设之数据库设计(Sql)：</strong>
+    <pre>
+
+      create database gold on (name='golddat',filename='f:\\Database\gold.mdf');
+      go
+      use gold
+      /**************** 创建表 ****************/
+      create table article(
+      id int identity primary key,
+      title nvarchar(128) not null,
+      body nvarchar(max) not null,
+      tm datetime not null,
+      author nvarchar(128) not null,
+      origin nvarchar(128) not null
+      )
+      create table category(
+      id int identity primary key,
+      nm nvarchar(128) not null,
+      prtId int default 1
+      )
+      create table aInc(
+      aId int not null foreign key references article(id),
+      cId int not null foreign key references category(id),
+      primary key(aId,cId)
+      )
+      go
+
+      /******************** 视图 ********************/
+      create view arts
+      as
+      select article.id,article.title,aInc.cId from article,aInc
+      go
+      /******************** 存储过程 ********************/
+      create procedure addArticle
+      @tit nvarchar(128),
+      @body nvarchar(max),
+      @author nvarchar(128),
+      @origin nvarchar(128),
+      @cId int=1,
+      @tm datetime=''
+      as
+      if(@tm='')
+      set @tm=getdate()
+      insert article values(@tit,@body,@tm,@author,@origin)
+      insert aInc values(scope_identity(),@cId)
+      go
+
+      create procedure addCategory
+      @nm varchar(128),
+      @prtId int=1
+      as
+      insert category values(@nm,@prtId)
+      go
+
+      create procedure art
+      @id int
+      as
+      select title,body,tm,author,origin from article where @id=id
+      go
+
+      create procedure list
+      @cId int,
+      @count int
+      as
+      select top (@count)  id,title from arts where @cId=cId
+      go
+    </pre>
+    网站建设过程中，网站采集必不可少，希望对大家有用
+  </b>
+</a>

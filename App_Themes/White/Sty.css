@@ -1,0 +1,284 @@
+﻿html
+{
+    background: #d0d8db; /*d4dcdf*/
+}
+
+body
+{
+    background: #fff url(../img/t.gif) repeat-x center top;
+}
+
+.W
+{
+    width: 1000px;
+}
+/*_header_*/
+.hd
+{
+    height: 70px;
+    margin-bottom:5px;
+}
+
+    .hd a
+    {
+        display: inline-block;
+        height: 40px;
+        padding: 0 18px;
+        color: #000;
+        font-size:18px;
+    }
+
+        .hd a.crt
+        {
+            background: url(../img/2.jpg) no-repeat center bottom;
+            color:#f60;
+        }
+
+        .hd a:hover
+        {
+            color: #999;
+        }
+
+a.lg
+{
+    margin-right: 128px;/*_220_*/
+    height: 48px;
+    background:url(../img/lg.png) no-repeat 0 4px;
+    padding:22px 0 0 94px;
+}
+/*_footer_*/
+.ft
+{
+    clear: both;
+    line-height: 36px;
+    padding-top: 90px;
+    background: url(../img/b.gif) repeat-x center bottom;
+}
+.ft a
+{
+    padding:0 4px;
+}
+/*_body_*/
+.bn
+{
+    height:280px;
+    background:url(../img/bb.png) 0 0 repeat-x #0cf;/*06b7fd*/
+}
+    .bn p
+    {
+        padding-top:16px;
+        color:#fff;
+        font-size:14px;
+    }
+        .bn p b
+        {
+            color:#fff;
+            display:block;
+            font-size:28px;
+        }
+.bn p img
+{
+    width:500px;
+    height:280px;
+}
+h1
+{
+    font-size:18px;
+    padding:8px 28px 8px 0px;
+    color:#666;
+
+}
+
+.s
+{
+    display:inline-block;
+    _display: inline;
+    width:320px;
+    height:360px;
+    background:#fdfdfd;
+    /*background:#fdfdfd url(http://www.nnduyi.com/images/2.jpg) no-repeat center 22px;
+    padding-top:120px;*/
+}
+.ls
+{ 
+    text-align:left;
+}
+.ls a
+{
+    display:block;
+    color:#fff;
+    background:#f90 url(../img/arrow.png) no-repeat 95% center;
+    margin-bottom:6px;
+    padding-left:18px;
+    font-size:18px;
+    line-height:64px;
+    letter-spacing:1px;
+}
+    .ls a:hover
+    {
+        background-color:#fa0;
+    }
+.mh9
+{
+    margin-left:30px;
+    margin-right:30px;
+}
+.s h2
+{
+    text-align:center;
+    margin:-46px 2px 0px;
+    color:#fff;
+    background:#333;
+    filter:alpha(opacity=75);
+	opacity:0.75;
+}
+.s p
+{
+    font:400 14px/28px "";
+    text-indent:2em;
+    text-align:left;
+}
+    .s p i
+    {
+        display:block;
+    }
+.s img
+{
+    display:inline-block;
+    border:1px solid #ddd;
+    padding:1px;
+}
+.h
+    {
+        display:block;
+        margin:0 -10px 6px;
+        padding-left:12px;
+        font-weight:600;
+        height: 30px;
+        line-height: 30px;
+        background: url(../img/hb.gif) repeat-x 0 0;
+        
+    }
+.m,
+.b
+{
+    display:inline-block;
+    width:720px;
+    text-align:left;
+    min-height: 480px;
+    height: auto!important;
+    height: 480px;
+
+}
+
+.b
+{
+    padding:50px 0px 0px 10px;
+    width:300px;
+    vertical-align:top;
+    /*background:#fdfdfd;*/
+
+}
+.b a,
+.m a
+{
+    display:block;
+    font:800 14px/28px "";
+}
+.m p
+{
+    text-indent:2em;
+}
+.m strong
+{
+    display:block;
+    line-height:36px;
+}
+
+.m a p
+{
+    color:#999;
+    font-weight:400;
+}
+    .m a:hover p
+    {
+            color:#666;
+    }
+ /*   .m
+{
+    min-height: 480px;
+    height: auto!important;
+    height: 480px;
+    background:#fcfcfc;
+}
+
+    
+    .sv
+{
+width:640px;
+background: #fcfcfc;
+border:1px solid #eee;
+margin-top:20px;
+padding: 20px 20px 0;
+
+border-style: solid;
+border-width: 2px 1px 1px 1px;
+border-color:#369 #ddd #ddd #ddd;
+
+}
+
+.ml
+{
+    width: 660px;
+}
+
+.mr
+{
+    width: 270px;
+    height: 480px;
+    padding: 0 0 0 22px;
+    border-left: 1px dashed #ddd;
+}
+
+    .b div
+    {
+        display:inline-block;
+        width:240px;
+        border: 1px solid #cfcfcf;
+        padding:0 10px 6px;
+        margin-right:9px;
+    }
+.ra
+{
+    background:#eee;
+    border:1px solid #ddd;
+}
+    
+    
+    .m
+{
+    width:606px;
+    float:left;
+}
+    .m h1
+    {
+        font:600 14px/64px "";
+        color:#ccc;
+    }
+.b
+{
+    width:320px;
+    padding:94px 0 0 50px;
+}
+    .b a
+    {
+        display:block;
+        color:#09c;
+    }
+
+        .b a:hover
+        {
+            color:#06c;
+        }
+
+*/
