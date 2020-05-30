@@ -10,7 +10,7 @@
     <asp:ContentPlaceHolder ID="tIpt" runat="server"/>
     <!--<base target="_blank" />-->
 </head>
-<body><div class="W hd" id="hd"><a href="/" title="" class="lg">北京灵熙科技有限公司</a><a href="/">首页</a><a href="/page/ledge.aspx">网站建设知识</a><a href="/page/list.aspx">收费资讯</a><a href="/52css/default.aspx">网站之Css</a></div>
+<body><div class="W hd" id="hd"><a href="/" title="" class="lg">北京灵熙科技有限公司</a><a href="/">首页</a><a href="http://www.wanfolin.com/">思念网</a><a href="/page/ledge.aspx">网站建设知识</a><a href="/page/list.aspx">收费资讯</a><a href="/52css/default.aspx">网站之Css</a></div>
     <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
 
                 <div class="b"><a href="/page/ledge.aspx">网站建设知识</a><a href="/page/list.aspx">收费资讯</a><a href="../jsm/Default.aspx" target="_blank">网站建设_css在线手册</a></div>
@@ -33,6 +33,25 @@
             }
         }
         crt();
+
+
+
+
+        setTimeout(function () {
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?6e72029a13f5cd164495f026d387ad6b";
+                /*
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);*/
+                C.Bd().append(hm)
+            })();
+
+            //调试：
+            //  (function () { var script = document.createElement('script'); script.src = "//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init(); console.log(eruda) } })();
+
+        }, 555)
     </script>
     <script type="text/javascript" id="Cbf"></script>
     <asp:ContentPlaceHolder ID="bIpt" runat="server" />

@@ -5,7 +5,7 @@
         <link href="../App_Themes/Base.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="body" runat="Server">
-                <div class="bn Mb9"><p class="W"><img src="../App_Themes/img/bn.png" class="L" /><b>关于我们</b>灵熙科技的团队成员年轻干练而富有创造力！十余年来，他们绐终恪守简洁、兼容、封装、重用的开发原则，以及追求完美的技术信仰，打造了无数高性能、高品质的优秀网站和软件，赢得广大客户的认可和好评！经过不断的学习拼搏，目前已成长为以网站建设、软件开发、SEO优化等相关业务为主的专业技术团队。</p></div>
+                <div class="bn Mb9"><p class="W"><img src="../App_Themes/img/bn.png" class="L" /><b>关于我们</b>灵熙科技的团队成员年轻干练而富有创造力！旗下有<a href="http://www.wanfolin.com/">思念网</a>平台，十余年来，他们绐终恪守简洁、兼容、封装、重用的开发原则，以及追求完美的技术信仰，打造了无数高性能、高品质的优秀网站和软件，赢得广大客户的认可和好评！经过不断的学习拼搏，目前已成长为以网站建设、软件开发、SEO优化等相关业务为主的专业技术团队。</p></div>
   <h1>产品与服务</h1>
             <a href="#" class="s"><img src="img/wz.jpg" width="316" /><h2>网站建设</h2><p><i>展示型网站</i><i>商务型网站</i><i>网上商城网站</i><i>门户型网站</i><i>网上商城</i></p></a>
       
